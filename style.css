@@ -1,125 +1,153 @@
-
+/* ========== Global Reset ========== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-
+/* ========== Body Styling ========== */
 body {
-    background-color: #121212; /* Dark background */
-    color: #FFFFFF;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+  background-color: #0d1117;
+  color: #f5f5f5;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
 }
 
-
+/* ========== Heading ========== */
 h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #BB86FC; 
+  font-size: 2.8rem;
+  color: #58a6ff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #58a6ff;
 }
 
+/* ========== Game Board ========== */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .game {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2vmin;
-    width: 60vmin;
-    height: 60vmin;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 12px;
+  background: #161b22;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
 }
 
+/* ========== Box Styling ========== */
 .box {
-    background-color: #1E1E2F; 
-    color: #BB86FC; 
-    font-size: 7vmin;
-    border-radius: 1rem;
-    border: 2px solid #BB86FC;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  background: #21262d;
+  color: #58a6ff;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 2px solid #30363d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .box:hover {
-    background-color: #2C2C3C; 
-    color: #FF6D00; 
-    box-shadow: 0 0 15px #FF6D00, 0 0 25px #FFB74D;
-}
-
-.msg-container {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(18, 18, 18, 0.95); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    z-index: 10;
-    backdrop-filter: blur(4px);
-}
-
-#msg {
-    font-size: 6vmin;
-    color: #FF6D00; 
-    text-shadow: 0 0 10px #FF6D00, 0 0 20px #FFB74D;
-}
-
-.hide {
-    display: none;
+  background: #30363d;
+  color: #ffae00;
+  box-shadow: 0 0 15px rgba(255, 174, 0, 0.4);
 }
 
 .box.winner {
-    background: linear-gradient(45deg, #FF6D00, #FFD600);
-    color: #121212;
-    box-shadow: 0 0 20px #FFD600, 0 0 40px #FF6D00;
+  background: linear-gradient(135deg, #ffae00, #ff6d00);
+  color: #0d1117;
+  box-shadow: 0 0 25px #ffae00;
 }
 
+/* ========== Buttons ========== */
 button {
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
-    border-radius: 1rem;
-    border: none;
-    cursor: pointer;
-    margin: 1rem 0.5rem;
-    transition: all 0.3s ease;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+/* Reset Button */
 #reset-btn {
-    background-color: #03DAC6;
-    color: #121212;
+  background-color: #238636;
+  color: #fff;
+  margin-top: 1rem;
 }
 
 #reset-btn:hover {
-    background-color: #018786;
+  background-color: #2ea043;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.6);
 }
 
+/* New Game Button (in overlay) */
 #new-btn {
-    background-color: #3700B3;
-    color: #FFFFFF;
+  background-color: #1f6feb;
+  color: #fff;
 }
 
 #new-btn:hover {
-    background-color: #6200EE;
+  background-color: #388bfd;
+  box-shadow: 0 0 10px rgba(56, 139, 253, 0.6);
+}
+
+/* ========== Message Container (Winner Screen) ========== */
+.msg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 17, 23, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+#msg {
+  font-size: 2.5rem;
+  color: #ffae00;
+  text-shadow: 0 0 15px #ffae00;
+}
+
+.hide {
+  display: none;
+}
+
+
+@media (max-width: 500px) {
+  .game {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 10px;
+  }
+
+  .box {
+    font-size: 2.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
 }
